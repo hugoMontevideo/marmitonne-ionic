@@ -1,0 +1,7 @@
+{
+  "name": "marmitonne",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

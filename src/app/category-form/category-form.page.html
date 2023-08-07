@@ -1,0 +1,40 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>category-form</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">category-form</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-content>
+    <form #form1 ="ngForm" (submit)="formulaire1(form1)">
+      <legend>Nouvelle catégorie</legend>
+
+      <ion-input [(ngModel)]="category.id" name="id" type="hidden"></ion-input>
+
+      <ion-item>
+        <ion-input [(ngModel)]="category.titre" 
+              name="titre" 
+              label="Nom de la catégorie"
+              labelPlacement="floating"
+              maxlength="40"
+              [counter]="true"
+              [clearInput]="true"><ion-text color="danger"></ion-text></ion-input>
+      </ion-item>
+      <ion-button type="submit">
+        <ion-icon  slot="end" name="restaurant"></ion-icon>
+        Valider
+      </ion-button>
+    </form>
+  </ion-content>
+
+</ion-content>
+
