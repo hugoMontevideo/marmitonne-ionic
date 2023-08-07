@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpService } from '../services/api/http.service';
 import { NgForm } from '@angular/forms';
+import { PhotoService } from '../services/photo.service';
+
 
 @Component({
   selector: 'app-recipe-form',
@@ -8,6 +10,8 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./recipe-form.page.scss'],
 })
 export class RecipeFormPage implements OnInit {
+  data:any
+ 
 
     
   ingredients: Array<any> = [];
@@ -33,14 +37,12 @@ export class RecipeFormPage implements OnInit {
   test :any;
   // id: string | null = '0'; // si id = 0 on est en ajout
   id:any;
-  constructor(private http: HttpService) { }
+  constructor(private http: HttpService, private photoService: PhotoService) { }
 
   ngOnInit() {
   }
 
   formulaire( form: NgForm ) {
-
-    // console.log('hellow')
 
     this.http.postData( "recette", form.value )
     .subscribe({
@@ -49,5 +51,22 @@ export class RecipeFormPage implements OnInit {
       complete: ()=> console.log('recette ajoutée')
     })
   }
+
+  
+  addIngr(event:any){
+    this.ingredients.push({
+      quantite: event.quantite,
+      nom: event.nom,
+      unite: event.unite
+    })
+  }
+
+  addPhotoToGallery() {
+    this.data= this.photoService.addNewToGallery();
+    console.log(this.data);
+    this.ngOnInit();
+ 
+  }
+
 
 }

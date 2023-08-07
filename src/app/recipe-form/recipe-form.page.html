@@ -85,13 +85,27 @@
         </ion-select>
       </ion-item>
 
-      <ion-item>
+      <ion-item class="padding">
+        <ion-fab class="ion-margin-bottom ion-margin-start"  horizontal="end"   >
+          <ion-fab-button (click)="addPhotoToGallery()">
+            <ion-icon name="camera"></ion-icon>
+          </ion-fab-button>
+        </ion-fab >
         <ion-input [(ngModel)]= "recette.photo" 
               name="photo"
               label="Photo"
               labelPlacement="floating"
               type="text" ></ion-input>
       </ion-item>
+
+      <app-ingredient-form (ingrEvent)="addIngr($event)"></app-ingredient-form>
+      <ul>
+        <li *ngFor="let ingredient of ingredients">
+          {{ingredient.quantite}} {{ingredient.unite}} {{ingredient.nom}}
+        </li>
+      </ul>
+
+     
 
       <ion-button type="submit">
         <ion-icon  slot="end" name="restaurant"></ion-icon>

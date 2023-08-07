@@ -1,13 +1,29 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>ingredient-form</ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-card>
+  <ion-card-content >
+    <ion-input #nom name="nom" 
+              label-placement="floating" 
+              label="nom ingrédient"
+              type="text"
+              >
+    </ion-input>
+  </ion-card-content>
+  
+  <ion-card-content>
+    <ion-input #quantite name="quantite" 
+              label-placement="floating" 
+              label="quantite"
+              type="text"
+              >
+    </ion-input>
+  </ion-card-content>
+  <ion-card-content>
+    <ion-input #unite name="unite" 
+              label-placement="floating" 
+              label="unite"
+              type="text"
+              >
+    </ion-input>
+    <ion-button (click)="addIngredient(unite.value, quantite.value, nom.value)">ajouter ingredient</ion-button>
+  </ion-card-content>
+</ion-card>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">ingredient-form</ion-title>
-    </ion-toolbar>
-  </ion-header>
-</ion-content>
